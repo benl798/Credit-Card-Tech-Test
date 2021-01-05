@@ -21,6 +21,7 @@ constructor(props) {
     month: null,
     year: null,
     cvc: null,
+    disable: true,
     errors: {
         title: "",
         number: "",
@@ -70,11 +71,12 @@ handleChange = (event) => {
     }
   
     this.setState({errors, [name]: value});
+    this.setState({disable: event.target.value === ''})
   } // handleChange
 
 handleSubmit = (event) => {
     event.preventDefault();
-  }
+  } // handleSubmit
   
 render() {
  const { errors } = this.state;
@@ -131,7 +133,7 @@ render() {
       onChange = {this.handleChange}
       noValidate
      />  
-     <button type = "submit">Submit</button>
+     <button disabled={this.state.disable}>Submit</button>
     </form>
   </div>
   )
