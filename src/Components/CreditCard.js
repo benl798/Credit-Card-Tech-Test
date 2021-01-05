@@ -18,16 +18,12 @@ constructor(props) {
     this.state = {
     title: "",
     number: "",
-    month: "",
-    year: "",
     cvc: "",
-    selectMonth: "",
-    selectYear: "",
+    selectMonth: "01",
+    selectYear: "01",
     errors: {
         title: "",
         number: "",
-        month: "",
-        year: "",
         cvc: ""
         }
     };
@@ -47,23 +43,15 @@ handleChange = (event) => {
     switch (name) {
       case "title": 
         errors.title = 
-          value.trim().length < 5 ? "Your card name must be at least 5 characters long" : "";
+          value.trim().length < 5 ? "Please enter the card holder's name which must be at least 5 characters long" : "";
         break;
       case "number": 
         errors.number = 
-          value.trim().length < 16 || !Number(value) ? "Card number must be 16 digits long and a number" : "";
-        break;
-      case "month":
-        errors.month = 
-          value.trim().length < 2 || !Number(value) ? "This input accepts numerical values only, please enter a valid date" : "";
-        break;
-      case "year":
-        errors.year = 
-          value.trim().length < 2 || !Number(value) ? "This input accepts numerical values only, please enter a valid date" : "";
-        break;  
+          !Number(value) ? "Uh Oh! This input accepts numerical values only!" : "";
+        break; 
       case "cvc":
-        errors.year = 
-          value.trim().length < 3 || !Number(value) ? "This input accepts numerical values only, please enter a valid date" : "";
+        errors.cvc = 
+          !Number(value) ? "Uh Oh! This input accepts numerical values only!" : "";
         break;    
       default: 
         break;
@@ -72,7 +60,7 @@ handleChange = (event) => {
     this.setState({errors, [name]: value});
     // this.setState({disable: event.target.value === ''})
   } // handleChange
-
+  
 handleDropdownMonth = (event) => {
     this.setState({ selectMonth: event.target.value });
 } // handleDropdownMonth
@@ -136,29 +124,6 @@ render() {
      {errors.number.length > 0 && 
         <span className='error'>{errors.number}</span>}
      {/* <h1>{this.state.number}</h1> */}
-     <input 
-      type = "text"
-      name = "month"
-      placeholder = "MM"
-      maxLength = "2"
-      size = "3"
-      onChange = {this.handleChange}
-      noValidate
-     />  
-     {errors.month.length > 0 && 
-        <span className='error'>{errors.month}</span>}
-     <span>/</span>
-     <input
-      type = "text"
-      name = "year"
-      placeholder = "YY"
-      maxLength = "2"
-      size = "3"
-      onChange = {this.handleChange}
-      noValidate
-     />
-     {errors.year.length > 0 && 
-        <span className='error'>{errors.year}</span>}
      <input
       type = "text"
       placeholder = "CVC"
