@@ -8,9 +8,9 @@
     justify-content: center;
     align-items: center;
     font-family: 'Raleway', sans-serif;
-  }
+}
 
-  .form-wrapper {
+.form-wrapper {
     display: flex;
     flex-direction: column;
     max-width: 50%;
@@ -19,22 +19,22 @@
     border-radius: 40px;
     box-shadow: 0px 0px 30px #9fa1a6;
     background-color: #1D315B;
-  }
+}
 
-  label {
+label {
     margin-bottom: 15px;
     font-size: 20px;
     color: #d6d1d5;
     font-weight: bolder;
-  }
+}
 
-  form {
+form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-  }
+}
 
-  input {
+input {
     padding: 15px 10px;
     border-radius: 4px;
     border: 1.5px solid #d6d1d5;
@@ -42,18 +42,18 @@
     color: #d6d1d5;
     font-size: 1.2em;
     font-family: 'Raleway', sans-serif;
-  }
+}
 
   input:placeholder {
     font-size: 1.2em;
     font-weight: lighter;
     color: #d6d1d5;
-  }
+}
 
   input:hover, select:hover {
     -webkit-transition: all 1s ease;
     border: 1.5px solid #189db7;
-  }
+}
 
 select {
     margin-bottom: 15px;
@@ -77,7 +77,7 @@ select {
     flex-direction: column;
     margin-bottom: 15px;
     width: 100%;
-  }
+}
 
 button {
     min-width: 100%;
@@ -97,7 +97,7 @@ button:hover {
     background-color: #d6d1d5;
     color: #fefefe;
     -webkit-transition: all 1s ease;
-  }
+}
 
 .error {
     color:#db2269;
