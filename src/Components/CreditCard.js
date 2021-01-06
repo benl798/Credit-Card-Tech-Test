@@ -72,20 +72,21 @@ handleDropDownYear = (event) => {
 
 handleSubmit = (event) => {
     event.preventDefault();
+    alert("Thank you for cheking out my technical test!");
   } // handleSubmit
   
 render() {
  const { errors } = this.state;
  return (
+  <div>  
   <div className="wrapper">
     <div className='form-wrapper'>
     <form className="form-inline" onSubmit={this.handleSubmit} noValidate>
-     {/* <h1 className="primary">{this.state.selectYear}</h1> */}
      <div className="title">
         <label htmlFor="title">Card Holder's Name</label>
         <input 
         type = "text"
-        placeholder = "Name..."
+        placeholder = "E.G BEN LUCK"
         name = "title"
         onChange = {this.handleChange}
         noValidate
@@ -97,7 +98,7 @@ render() {
         <label htmlFor="number">Card Number</label> 
         <input
         type = "text"
-        placeholder = "Card Number..."
+        placeholder = "E.G 123..."
         name = "number" 
         maxLength = "16"
         onChange = {this.handleChange}
@@ -106,7 +107,6 @@ render() {
      </div>
         {errors.number.length > 0 && 
             <span className='error'>{errors.number}</span>}
-        {/* <h1>{this.state.number}</h1> */}
      <div className="month">
         <label htmlFor="month">MM/YY</label>   
         <select onChange={this.handleDropdownMonth}>
@@ -124,7 +124,6 @@ render() {
             <option value="12">12</option>
         </select>
      </div>
-     {/* <h1>{this.state.selectMonth}</h1> */}
      <div className="year">
             <select onChange={this.handleDropDownYear}>
             <option value="21">21</option>
@@ -140,7 +139,7 @@ render() {
         <label htmlFor="cvc">CVC</label>
         <input
         type = "text"
-        placeholder = "CVC..."
+        placeholder = "E.G 123..."
         name = "cvc"
         maxLength = "3"
         onChange = {this.handleChange}
@@ -153,6 +152,36 @@ render() {
     </form>
     </div>
   </div>
+<div className="container">
+
+<div className="card">
+    <div className="mid">
+        <h2>card number</h2>
+        <div className="card-number">
+            <span>{this.state.number}</span>
+        </div>
+    </div>
+
+    <div className="bottom">
+        <div className="card-holder">
+            <h2>card holder</h2>
+            <span>{this.state.title}</span>
+        </div>   
+        <div>
+            <h2>Date</h2>
+            <span>{this.state.selectMonth}</span> /
+            <span>{this.state.selectYear}</span>
+        </div>      
+        <div className="cvv">
+            <h2>cvv</h2>
+            <span>{this.state.cvc}</span>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</div> 
   )
  }
 }
